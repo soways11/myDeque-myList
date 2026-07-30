@@ -16,6 +16,7 @@ namespace myLibrary{
 		public:
 			list(); // constructor
 			~list(); // destructor
+            void clear();
 			void pushFront(type x); // add new element to the start of list
 			void popFront(); // delete first element
 			void pushBack(type x); // add new element to the end of list
@@ -33,6 +34,12 @@ namespace myLibrary{
 	}
  
 	template <typename type> list<type>::~list(){
+		while (!empty()){
+			popBack();
+		}
+	}
+
+    template <typename type> void list<type>::clear(){
 		while (!empty()){
 			popBack();
 		}
